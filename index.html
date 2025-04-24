@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>deeplink test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Connection DeepLink Test</h1>
+  <p>Click button to open app</p>
+  <p>We should send the webpage link to the user via email.</p>
+  <p>When the user clicks the link in the webpage, it will redirect them to the Connection page in the app.</p>
+  <p>Directly entering the deeplink in the browser won’t allow the app to open properly.</p>
+  <p>Additionally, this page can be designed to look visually appealing.</p>
+  
+  <button onclick="openApp()">Open App</button>
+
+  <script>
+    function openApp() {
+      // Deeplink 地址（你提供的）
+      const deeplink = 'https://link.openrecovery.com/1hlr/fconnect?code=1234';
+
+      // 尝试跳转到 App
+      window.location.href = deeplink;
+
+      // fallback：未安装 App 的情况跳转到下载页
+      setTimeout(function () {
+        window.location.href = 'https://yourdomain.com/download'; // 替换为你的 App 下载页
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
