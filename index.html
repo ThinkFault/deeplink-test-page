@@ -26,7 +26,7 @@
 </head>
 <body>
 
-  <h1>Connection DeepLink Test Page</h1>
+  <!--- <h1>Connection DeepLink Test Page</h1>
   <p>Click button to open app</p>
   <p>We should send the webpage link to the user via email.</p>
   <p>When the user clicks the link in the webpage, it will redirect them to the Connection page in the app.</p>
@@ -41,7 +41,17 @@
 
   <a href="intent://link.openrecovery.com/1hlr/fconnect?code=c651a3ad#Intent;scheme=https;package=com.twelve_steps.twelve_steps.test;end">
   TTTTTTTT
-</a>
+</a> --->
+
+
+
+<button onclick="openApp2()">Chat With Kai (IOS show this button)</button><br/>
+
+<a href="intent://link.12steps.app/1hlr/jreqaqk7#Intent;scheme=https;package=com.twelve_steps.twelve_steps;end">
+  Chat With Kai (Android show this button)
+</a><br/>
+
+
 
 
 
@@ -50,6 +60,19 @@
     function openApp() {
       // Deeplink 地址（你提供的）
       const deeplink = 'https://link.openrecovery.com/1hlr/fconnect?code=c651a3ad';
+
+      // 尝试跳转到 App
+      window.location.href = deeplink;
+
+      // fallback：未安装 App 的情况跳转到下载页
+      setTimeout(function () {
+        window.location.href = 'https://yourdomain.com/download'; // 替换为你的 App 下载页
+      }, 2000);
+    }
+
+function openApp2() {
+      // Deeplink 地址（你提供的）
+      const deeplink = 'https://link.12steps.app/1hlr/jreqaqk7';
 
       // 尝试跳转到 App
       window.location.href = deeplink;
